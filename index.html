@@ -7,18 +7,78 @@
     <title>Simple Javascript Countdown</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
+        @font-face {
+            font-family: vazir;
+            src: url('https://mohamadhossein.ir/wp-content/themes/sahifa/fonts/vazir/Vazir-Regular-FD.eot');
+            src: url('https://mohamadhossein.ir/wp-content/themes/sahifa/fonts/vazir/Vazir-Regular-FD.eot?#iefix') format('embedded-opentype'),
+                url('https://mohamadhossein.ir/wp-content/themes/sahifa/fonts/vazir/Vazir-Regular-FD.woff2') format('woff2'),
+                url('https://mohamadhossein.ir/wp-content/themes/sahifa/fonts/vazir/Vazir-Regular-FD.woff') format('woff'),
+                url('https://mohamadhossein.ir/wp-content/themes/sahifa/fonts/vazir/Vazir-Regular-FD.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: vazir;
+            src: url('https://mohamadhossein.ir/wp-content/themes/sahifa/fonts/vazir/Vazir-Bold-FD.eot');
+            src: url('https://mohamadhossein.ir/wp-content/themes/sahifa/fonts/vazir/Vazir-Bold-FD.eot?#iefix') format('embedded-opentype'),
+                url('https://mohamadhossein.ir/wp-content/themes/sahifa/fonts/vazir/Vazir-Bold-FD.woff2') format('woff2'),
+                url('https://mohamadhossein.ir/wp-content/themes/sahifa/fonts/vazir/Vazir-Bold-FD.woff') format('woff'),
+                url('https://mohamadhossein.ir/wp-content/themes/sahifa/fonts/vazir/Vazir-Bold-FD.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
         body {
-            /* background: rgb(63, 94, 251);
-            background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%); */
+            direction: rtl;
+            transition: 1s;
+            font-family: monospace;
+            font-size: 28px;
+            color: #147BB3;
+            text-align: center;
+            background-color: #f6f6f6;
+            background-image: url(background.jpg);
+            background-position: center;
+            min-height: 100vh;
+            overflow: hidden;
+
+        }
+
+        #timeBlock {
+            -webkit-box-shadow: 8px 0px 0px 0px #b1938bb4, 0px 8px 0px 0px #b1938bb4, -8px 0px 0px 0px #4e4e56cc, 0px 0px 0px 8px #da635de8, 5px 5px 0px 6px rgba(0, 0, 0, 0);
+            box-shadow: 8px 0px 0px 0px #b1938bb4, 0px 8px 0px 0px #b1938bb4, -8px 0px 0px 0px #4e4e56cc, 0px 0px 0px 8px #da635de8, 5px 5px 0px 6px rgba(0, 0, 0, 0);
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-family: vazir;
+            min-width: 280px;
+            background-color: #fff;
+
+        }
+
+        #just {
+            color: #DA635D;
         }
     </style>
 </head>
 
 <body>
+    <div id="timeBlock">
+        <p>
+            تا اتمام فرصت تسک اول
+            <br />
+            <span id="just">
+                فقط
+            </span>
+        </p>
+        <p id="time"></p>
+    </div>
 
-    <p id="time">
 
-    </p>
 
     <script>
         var x = setInterval(function () {
@@ -34,8 +94,8 @@
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("time").innerHTML = days + "d " + hours + "h "
-                + minutes + "m " + seconds + "s ";
+            document.getElementById("time").innerHTML = days + " روز و " + hours + " ساعت و "
+                + minutes + " دقیقه و " + seconds + " ثانیه باقی مانده!! ";
 
             // console.log(days)
         }, 1000);
