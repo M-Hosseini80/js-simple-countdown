@@ -6,19 +6,39 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Simple Javascript Countdown</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <style>
         body {
-            background: rgb(63, 94, 251);
-            background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+            /* background: rgb(63, 94, 251);
+            background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%); */
         }
     </style>
 </head>
 
 <body>
 
-    <script>
+    <p id="time">
 
+    </p>
+
+    <script>
+        var x = setInterval(function () {
+
+            var mainDate = new Date("Nov 5,2022 00:00:00").getTime()
+
+            var now = new Date().getTime();
+            var distance = mainDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("time").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            // console.log(days)
+        }, 1000);
     </script>
 </body>
 
