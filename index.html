@@ -17,7 +17,7 @@
             direction: rtl;
             transition: 1s;
             font-family: monospace;
-            font-size: 28px;
+            font-size: 24px;
             color: #147BB3;
             text-align: center;
             background-color: #f6f6f6;
@@ -29,8 +29,8 @@
         }
 
         #timeBlock {
-            -webkit-box-shadow: 8px 0px 0px 0px #b1938bb4, 0px 8px 0px 0px #b1938bb4, -8px 0px 0px 0px #4e4e56cc, 0px 0px 0px 8px #da635de8, 5px 5px 0px 6px rgba(0, 0, 0, 0);
-            box-shadow: 8px 0px 0px 0px #b1938bb4, 0px 8px 0px 0px #b1938bb4, -8px 0px 0px 0px #4e4e56cc, 0px 0px 0px 8px #da635de8, 5px 5px 0px 6px rgba(0, 0, 0, 0);
+            -webkit-box-shadow: 8px 0px 0px 0px #147BB3, 0px 8px 0px 0px #b1938bb4, -8px 0px 0px 0px #147BB3, 0px 0px 0px 8px #e73777, 5px 5px 0px 6px rgba(0, 0, 0, 0);
+            box-shadow: 8px 0px 0px 0px #147BB3, 0px 8px 0px 0px #e73777, -8px 0px 0px 0px #147BB3, 0px 0px 0px 8px #e73777, 5px 5px 0px 6px rgba(0, 0, 0, 0);
             position: fixed;
             left: 50%;
             top: 50%;
@@ -45,7 +45,8 @@
         }
 
         #just {
-            color: #DA635D;
+            color: #e73777;
+            font-size: 40px;
         }
     </style>
 </head>
@@ -59,6 +60,7 @@
                 فقط
             </span>
         </p>
+        <img id="loader" src="loader.gif" alt="loading.." width="40px" />
         <p id="time"></p>
     </div>
 
@@ -78,10 +80,12 @@
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("time").innerHTML = days + " روز و " + hours + " ساعت و "
-                + minutes + " دقیقه و " + seconds + " ثانیه باقی مانده!! ";
+
 
             // console.log(days)
+            document.getElementById("loader").style.display = 'none';
+            document.getElementById("time").innerHTML = days + " روز و " + hours + " ساعت و "
+                + minutes + " دقیقه و " + seconds + " ثانیه باقی مانده!! ";
         }, 1000);
     </script>
 </body>
